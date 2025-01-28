@@ -10,13 +10,11 @@ import 'drawer_content/SearchPage.dart';
 import 'drawer_content/ProfilePage.dart';
 import 'drawer_content/AboutPage.dart';
 import 'drawer_content/ContactPage.dart';
-import 'drawer_content/ContactPage.dart';
+
 /* import models */
 import 'models/user.dart';
 
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
