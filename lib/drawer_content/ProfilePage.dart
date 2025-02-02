@@ -8,10 +8,14 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final User user = ModalRoute.of(context)!.settings.arguments as User;
 
-    final usernameController = TextEditingController(text: user.username);
+    final firstnameController = TextEditingController(text: user.FirstName);
+    final lastnameController = TextEditingController(text: user.LastName);
     final emailController = TextEditingController(text: user.email);
     final phoneController = TextEditingController(text: user.phone);
     final ageController = TextEditingController(text: user.age);
+    final genderController = TextEditingController(text: user.Gender);
+    final nationalityController = TextEditingController(text: user.Nationality);
+
 
     return Scaffold(
       appBar: AppBar(
@@ -23,8 +27,12 @@ class ProfilePage extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-              controller: usernameController,
-              decoration: const InputDecoration(labelText: "Username"),
+              controller: firstnameController,
+              decoration: const InputDecoration(labelText: "Firstname"),
+            ),
+            TextField(
+              controller: lastnameController,
+              decoration: const InputDecoration(labelText: "Lastname"),
             ),
             TextField(
               controller: emailController,
@@ -38,13 +46,24 @@ class ProfilePage extends StatelessWidget {
               controller: ageController,
               decoration: const InputDecoration(labelText: "Age"),
             ),
+            TextField(
+              controller: genderController,
+              decoration: const InputDecoration(labelText: "Gender"),
+            ),TextField(
+              controller: nationalityController,
+              decoration: const InputDecoration(labelText: "Nationality"),
+            ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                user.username = usernameController.text;
+                user.FirstName = firstnameController.text;
+                user.LastName = lastnameController.text;
                 user.email = emailController.text;
                 user.phone = phoneController.text;
                 user.age = ageController.text;
+                user.Gender = genderController.text;
+                user.Nationality = nationalityController.text;
+
                 Navigator.pop(context);
               },
               style: OutlinedButton.styleFrom(

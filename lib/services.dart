@@ -30,12 +30,12 @@ class ServicesPage extends StatelessWidget {
     },
     {
       'name': 'مطاعم',
-      'image': 'assets/images/restaurants.jpg',
+      'image': 'assets/images/resturant/restaurants.jpg',
       'route': RestaurantsPage(),
     },
     {
       'name': 'مستشفيات',
-      'image': 'assets/images/hospitals.jpg',
+      'image': 'assets/images/hospital/hospitals.jpg',
       'route': HospitalsPage(),
     },
     {
@@ -49,6 +49,7 @@ class ServicesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+         centerTitle: true,
         title: Text(
           'الخدمات',
           style: TextStyle(color: Colors.white, fontSize: 24),

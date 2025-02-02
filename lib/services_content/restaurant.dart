@@ -4,34 +4,34 @@ class RestaurantsPage extends StatelessWidget {
   final List<Map<String, dynamic>> restaurants = [
     {
       'name': ' قصر الكبابجي',
-      'image': 'assets/images/restaurant5.jpg',
+      'image': 'assets/images/resturant/restaurant5.jpg',
       'details':
           ' يعد مطعم قصر الكبابجي أحد أشهر وأفضل مطاعم القاهرة، حيث تعد حسابات قصر الكبابجي على وسائل التواصل الاجتماعي من أكثر الحسابات مشاهدة ومتابعة بسبب تفاعلهم الكبير واستضافتهم لشخصيات مؤثرة على مواقع التواصل الاجتماعي.يقدم مطعم قصر الكبابجي وجبات رئيسية مثل المشويات والمندي والمقبلات بالإضافة إلى قائمة كبيرة من العصائر والمشروبات كما يقدم عدد من المأكولات المصرية مثل الملوخية والممبار والمحشي وورق العنب.  ',
     },
     {
       'name': 'مطعم حضرموت عنتر',
-      'image': 'assets/images/restaurant6.jpg',
+      'image': 'assets/images/resturant/restaurant6.jpg',
       'details':
           ' عند الحديث عن أفضل مطاعم القاهرة لا يسعنا الا أن نذكر مطعم حضرموت عنتر الذي أثبت أنه منافس قوي في ساحة المطاعم المصرية، حيث إنه يقدم أشهى الأطباق الحضرمية والمصرية بجودة عالية وبأسعار مناسبة للجميع.    ',
     },
     {
       'name': 'مطعم حواوشي الرفاعي',
-      'image': 'assets/images/restaurant1.jpg',
+      'image': 'assets/images/resturant/restaurant1.jpg',
       'details': 'هذا هو مطعم حواوشي الرفاعي يقدم أشهى انواع الحواوشي .',
     },
     {
       'name': 'مطعم بازوكا',
-      'image': 'assets/images/restaurant4.jpg',
+      'image': 'assets/images/resturant/restaurant4.jpg',
       'details': 'هذا هو مطعم بازوكا يقدم أفضل المأكولات البحرية.',
     },
     {
       'name': 'مطعم الأغا',
-      'image': 'assets/images/restaurant3.jpg',
+      'image': 'assets/images/resturant/restaurant3.jpg',
       'details': 'هذا هو مطعم الاغا يتميز بجو عائلي رائع.',
     },
     {
       'name': 'مطعم ذا فيو',
-      'image': 'assets/images/restaurant4.jpg',
+      'image': 'assets/images/resturant/restaurant4.jpg',
       'details': 'هذا هو مطعم ذا فيو يتميز بأطباقه العالمية.',
     },
   ];
@@ -40,6 +40,7 @@ class RestaurantsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           'مطاعم',
           style: TextStyle(color: Colors.white, fontSize: 24),

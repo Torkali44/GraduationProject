@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -18,49 +19,48 @@ class MyApp extends StatelessWidget {
 }
 
 class ContactPage extends StatelessWidget {
-  final List<Map<String, dynamic>> frontTeam =[
-    {'name': ' ترك علي', 'image': 'assets/images/team/torkImage.jpg', 'details': 'طالب الفرقه الرابعه حاسبات ومعلومات قسم علوم الحاسب (تيم  الفرونت)',  'links': {
-        'linkedin': 'https://www.linkedin.com/in/tork-ali-6a609b239',
-        'github': 'https://github.com/Torkali44',
-        'gmail': 'https://torkali@gmail.com',
+   final List<Map<String, dynamic>> team =[
+    {'name': ' ترك علي', 'role': 'Flutter Developer',
+    'image': 'assets/images/team/torkImage.jpg',   'links': {
+        'Linkedin': 'https://www.linkedin.com/in/tork-ali-6a609b239',
+        'Github': 'https://github.com/Torkali44',
+        'Gmail': 'https://torkali@gmail.com',
       }},
-    {'name': 'احمد الشافعي', 'image': 'assets/images/team/alshafeiImage.jpg', 'details': 'طالب الفرقه الرابعه حاسبات ومعلومات قسم نظم المعلومات  (تيم  الباك)',  'links': {
-        'linkedin': 'https://linkedin.com/in/tarek',
-        'github': 'https://wa.me/123456789',
-        'gmail': 'https://instagram.com/tarek',
+    {'name': 'احمد الشافعي', 'role': 'BackEnd Developer','image': 'assets/images/team/alshafeiImage.jpg',   'links': {
+        'Linkedin': 'https://linkedin.com/in/tarek',
+        'Github': 'https://wa.me/123456789',
+        'Gmail': 'https://instagram.com/tarek',
       }},
-    {'name': 'اندرو مجدي', 'image': 'assets/images/team/andrewImage.jpg', 'details': 'طالب الفرقه الرابعه حاسبات ومعلومات قسم نظم المعلومات  (تيم  الفرونت)',  'links': {
-        'linkedin': 'https://linkedin.com/in/tarek',
-        'github': 'https://wa.me/123456789',
-        'gmail': 'https://instagram.com/tarek',
+    {'name': 'اندرو مجدي','role': 'Flutter Developer ', 'image': 'assets/images/team/andrewImage.jpg', 'links': {
+        'Linkedin': 'https://linkedin.com/in/tarek',
+        'Github': 'https://wa.me/123456789',
+        'Gmail': 'https://instagram.com/tarek',
       }},
-    {'name': 'احمد هلال ', 'image': 'assets/images/team/helalImage.jpg', 'details':  'طالب الفرقه الرابعه حاسبات ومعلومات قسم نظم المعلومات (تيم  الباك)',  'links': {
-      'linkedin': 'https://linkedin.com/in/tarek',
-        'github': 'https://wa.me/123456789',
-        'gmail': 'https://instagram.com/tarek',
+    {'name': 'احمد هلال ', 'role': 'BackEnd Developer','image': 'assets/images/team/helalImage.jpg',   'links': {
+      'Linkedin': 'https://linkedin.com/in/tarek',
+        'Github': 'https://wa.me/123456789',
+        'Gmail': 'https://instagram.com/tarek',
       }},
-  ];
 
-  final List<Map<String, dynamic>> backTeam = [
-    {'name': 'بيشوي بقطر', 'image': 'assets/images/team/beshoyImage.jpg', 'details': 'طالب الفرقه الرابعه حاسبات ومعلومات قسم نظم المعلومات  (تيم  الفرونت)',  'links': {
-     'linkedin': 'https://linkedin.com/in/tarek',
-        'github': 'https://wa.me/123456789',
-        'gmail': 'https://instagram.com/tarek',
+    {'name': 'بيشوي بقطر', 'role': 'Flutter Developer ','image': 'assets/images/team/beshoyImage.jpg',   'links': {
+     'Linkedin': 'https://linkedin.com/in/tarek',
+        'Github': 'https://wa.me/123456789',
+        'Gmail': 'https://instagram.com/tarek',
       }},
-    {'name': 'احمد سليم', 'image': 'assets/images/team/selimImage.jpg', 'details':  'طالب الفرقه الرابعه حاسبات ومعلومات قسم نظم المعلومات  (تيم  الباك)',  'links': {
-        'linkedin': 'https://linkedin.com/in/tarek',
-        'github': 'https://wa.me/123456789',
-        'gmail': 'https://instagram.com/tarek',
+    {'name': 'احمد سليم', 'role': 'BackEnd Developer','image': 'assets/images/team/selimImage.jpg', 'links': {
+        'Linkedin': 'https://linkedin.com/in/tarek',
+        'Github': 'https://wa.me/123456789',
+        'Gmail': 'https://instagram.com/tarek',
       }},
-    {'name': 'كيرلس نشات', 'image': 'assets/images/team/keroImage.png', 'details':  'طالب الفرقه الرابعه حاسبات ومعلومات قسم علوم الحاسب (تيم  الفرونت)',  'links': {
-       'linkedin': 'https://linkedin.com/in/tarek',
-        'github': 'https://wa.me/123456789',
-        'gmail': 'https://instagram.com/tarek',
+    {'name': 'كيرلس نشات', 'role': 'Flutter Developer ','image': 'assets/images/team/keroImage.png', 'links': {
+       'Linkedin': 'https://linkedin.com/in/tarek',
+        'Github': 'https://wa.me/123456789',
+        'Gmail': 'https://instagram.com/tarek',
       }},
-    {'name': 'احمد محمد', 'image': 'assets/images/Picsart_24-06-16_09-50-05-308.jpg', 'details':  'طالب الفرقه الرابعه حاسبات ومعلومات قسم نظم المعلومات  (تيم  الباك)',  'links': {
-       'linkedin': 'https://linkedin.com/in/tarek',
-        'github': 'https://wa.me/123456789',
-        'gmail': 'https://instagram.com/tarek',
+    {'name': 'احمد محمد', 'role': 'BackEnd Developer','image': 'assets/images/Picsart_24-06-16_09-50-05-308.jpg',  'links': {
+       'Linkedin': 'https://linkedin.com/in/tarek',
+        'Github': 'https://wa.me/123456789',
+        'Gmail': 'https://instagram.com/tarek',
       }},
   ];
 
@@ -69,22 +69,18 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-  title: const Text(
-    'تواصل معنا',
-    style: TextStyle(color: Colors.white, fontSize: 24),
+         centerTitle: true,
+        title: const Text(
+          'تواصل معنا',
+          style: TextStyle(color: Colors.white, fontSize: 24),
+        ),
+        backgroundColor: Colors.teal,
+        leading: IconButton(
+    icon: const Icon(Icons.arrow_back, color: Colors.white), 
+    onPressed: () => Navigator.pop(context),
   ),
-  iconTheme: const IconThemeData(
-    color: Colors.white, 
-  ),
-  backgroundColor: Colors.teal,
-  leading: IconButton(
-    icon: const Icon(Icons.arrow_back),
-    onPressed: () {
-      Navigator.pop(context);
-    },
-  ),
-),
-  body: Padding(
+      ),
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -92,21 +88,19 @@ class ContactPage extends StatelessWidget {
             crossAxisSpacing: 8.0,
             mainAxisSpacing: 8.0,
           ),
-          itemCount: frontTeam.length + backTeam.length,
+          itemCount: team.length,
           itemBuilder: (context, index) {
-            final teamMember = index < frontTeam.length
-                ? frontTeam[index]
-                : backTeam[index - frontTeam.length];
+            final member = team[index];
             return GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => DetailsPage(
-                      name: teamMember['name'],
-                      image: teamMember['image'],
-                      details: teamMember['details'],
-                       links: teamMember['links'],
+                      name: member['name'],
+                      image: member['image'],
+                      role: member['role'],
+                      links: member['links'],
                     ),
                   ),
                 );
@@ -119,24 +113,17 @@ class ContactPage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          teamMember['image'],
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(member['image']),
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      teamMember['name'],
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      member['name'],
+                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
+                   
                   ],
                 ),
               ),
@@ -151,13 +138,13 @@ class ContactPage extends StatelessWidget {
 class DetailsPage extends StatelessWidget {
   final String name;
   final String image;
-  final String details;
+  final String role;
   final Map<String, String> links;
 
   const DetailsPage({
     required this.name,
     required this.image,
-    required this.details,
+    required this.role,
     required this.links,
     Key? key,
   }) : super(key: key);
@@ -165,65 +152,113 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.teal,
       appBar: AppBar(
-        title: Text(
-          name,
-          style: const TextStyle(color: Colors.white, fontSize: 24),
-        ),
-        backgroundColor: Colors.teal,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(image, height: 200, width: 200, fit: BoxFit.cover),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              details,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 16),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: links.entries.map((entry) {
-                return IconButton(
-                  icon: Icon(
-                    _getIconForLink(entry.key),
-                    
-                  ),
-                  onPressed: () => _launchURL(entry.value),
-                );
-              }).toList(),
-            ),],
+  backgroundColor: Colors.white, 
+  centerTitle: true, 
+  title: Text(
+    name,
+    style: const TextStyle(color: Colors.teal, fontSize: 24, fontWeight: FontWeight.bold),
+  ),
+  leading: IconButton(
+    icon: const Icon(Icons.arrow_back, color: Colors.teal), 
+    onPressed: () => Navigator.pop(context),
+  ),
+),
+ body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 60,
+                backgroundColor: Colors.white,
+                child: CircleAvatar(
+                  radius: 55,
+                  backgroundImage: AssetImage(image),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                name,
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 5),
+              Text(
+                role,
+                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 10),
+            
+              const SizedBox(height: 20),
+              Column(
+                children: links.entries.map((entry) {
+                  return ContactButton(
+                    icon: _getIconForLink(entry.key),
+                    label: entry.key,
+                    url: entry.value,
+                  );
+                }).toList(),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
-IconData _getIconForLink(String key) {
-  switch (key) {
-    case 'linkedin':
-      return FontAwesomeIcons.linkedin; // IconData from FontAwesome
-    case 'github':
-      return FontAwesomeIcons.github; // IconData from FontAwesome
-    case 'gmail':
-      return FontAwesomeIcons.envelope; // IconData from FontAwesome
-    default:
-      return Icons.link; // Default IconData
+}
+
+class ContactButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String url;
+
+  const ContactButton({
+    required this.icon,
+    required this.label,
+    required this.url,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () async {
+        final uri = Uri.parse(url);
+        if (await canLaunchUrl(uri)) {
+          await launchUrl(uri);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('تعذر فتح الرابط: $url')),
+          );
+        }
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5),
+        child: Card(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          child: ListTile(
+            leading: Icon(icon, color: Colors.teal),
+            title: Text(label),
+          ),
+        ),
+      ),
+    );
   }
 }
 
-
-
-  void _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
+IconData _getIconForLink(String key) {
+  switch (key) {
+    case 'Linkedin':
+      return FontAwesomeIcons.linkedin;
+    case 'Github':
+      return FontAwesomeIcons.github;
+    case 'Gmail':
+      return FontAwesomeIcons.envelope;
+    default:
+      return Icons.link;
   }
 }

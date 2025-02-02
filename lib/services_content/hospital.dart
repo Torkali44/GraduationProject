@@ -4,32 +4,32 @@ class HospitalsPage extends StatelessWidget {
   final List<Map<String, dynamic>> hospitals = [
     {
       'name': 'مستشفى كليوباترا',
-      'image': 'assets/images/hospital1.jpg',
+      'image': 'assets/images/hospital/hospital1.jpg',
       'details': 'هذا هو مستشفى كليوباترا يقدم أفضل خدمات الرعاية الصحية.',
     },
     {
       'name': 'مستشفى النيل',
-      'image': 'assets/images/hospital2.jpg',
+      'image': 'assets/images/hospital/hospital2.jpg',
       'details': 'هذا هو مستشفى النيل مجهز بأحدث التقنيات الطبية.',
     },
     {
       'name': 'مستشفى 57357',
-      'image': 'assets/images/hospital3.jpg',
+      'image': 'assets/images/hospital/hospital3.jpg',
       'details': 'هذا هو مستشفى 57357 متخصص في الجراحة والعلاج الطبيعي.',
     },
     {
       'name': 'مستشفى مجدي يعقوب',
-      'image': 'assets/images/hospital4.jpg',
+      'image': 'assets/images/hospital/hospital4.jpg',
       'details': 'هذا هو مستشفى مجدي يعقوب يتميز بخدمات طوارئ متقدمة.',
     },
     {
       'name': 'مستشفى بهيه',
-      'image': 'assets/images/hospital5.jpg',
+      'image': 'assets/images/hospital/hospital5.jpg',
       'details': 'هذا هو مستشفى بهيه يقدم خدمات طبية عالية الجودة.',
     },
     {
       'name': 'مستشفى كليوباترا',
-      'image': 'assets/images/hospital1.jpg',
+      'image': 'assets/images/hospital/hospital1.jpg',
       'details': 'هذا هو مستشفي كليوباترا متخصص في طب الأطفال.',
     },
   ];
@@ -38,11 +38,12 @@ class HospitalsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('مستشفيات',
         style: TextStyle(color: Colors.white , fontSize: 24),
         ),
         iconTheme: IconThemeData(
-    color: Colors.white, // لون زر الرجوع
+    color: Colors.white, 
   ),
         backgroundColor: Colors.teal,
       ),
@@ -133,7 +134,7 @@ class HospitalDetailsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // صورة المستشفى
+           
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
               child: Container(
@@ -149,7 +150,7 @@ class HospitalDetailsPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            // نص التفاصيل
+           
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(

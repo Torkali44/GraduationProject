@@ -39,6 +39,7 @@ class TouristPlaces extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+         centerTitle: true,
         title: const Text('أماكن سياحية',  style: TextStyle(color: Colors.white , fontSize: 24),),
         iconTheme: IconThemeData(
     color: Colors.white,

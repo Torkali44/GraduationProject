@@ -14,7 +14,6 @@ import 'drawer_content/ContactPage.dart';
 /* import models */
 import 'models/user.dart';
 
-
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/profile': (context) => const ProfilePage(),
         '/about': (context) => const AboutPage(),
-        '/contact': (context) =>  ContactPage(),
+        '/contact': (context) => ContactPage(),
         '/Services': (context) => ServicesPage(),
         '/Hotel': (context) => const HotelPage(),
         '/Transport': (context) => const TransportPage(),
@@ -41,8 +40,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Class to hold user information
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -51,14 +48,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   static User? registeredUser;
 
   void login(BuildContext context) {
     if (registeredUser != null &&
-        usernameController.text == registeredUser!.username &&
+        emailController.text == registeredUser!.email &&
         passwordController.text == registeredUser!.password) {
       Navigator.pushNamed(context, '/home', arguments: registeredUser);
     } else {
@@ -109,11 +106,11 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 20),
               TextField(
-                controller: usernameController,
+                controller: emailController,
                 decoration: const InputDecoration(
-                  hintText: 'Username',
+                  hintText: 'Email',
                   border: UnderlineInputBorder(),
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: Icon(Icons.email),
                 ),
               ),
               const SizedBox(height: 15),
@@ -155,11 +152,14 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 class SignUpPage extends StatelessWidget {
-  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController firstnameController = TextEditingController();
+  final TextEditingController lastnameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
+  final TextEditingController genderController = TextEditingController();
+  final TextEditingController nationalityController = TextEditingController();
 
   SignUpPage({super.key});
 
@@ -203,97 +203,213 @@ class SignUpPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: usernameController,
-              decoration: const InputDecoration(
-                hintText: 'Username',
-                border: UnderlineInputBorder(),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              TextField(
+                controller: firstnameController,
+                decoration: const InputDecoration(
+                  hintText: 'FirstName',
+                  border: UnderlineInputBorder(),
+                ),
               ),
-            ),
-            const SizedBox(height: 13),
-            TextField(
-              controller: passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(
-                hintText: 'Password',
-                border: UnderlineInputBorder(),
+              const SizedBox(height: 13),
+              TextField(
+                controller: lastnameController,
+                decoration: const InputDecoration(
+                  hintText: 'LastName',
+                  border: UnderlineInputBorder(),
+                ),
               ),
-            ),
-            const SizedBox(height: 13),
-            TextField(
-              controller: emailController,
-              decoration: const InputDecoration(
-                hintText: 'Email',
-                border: UnderlineInputBorder(),
+              const SizedBox(height: 13),
+              TextField(
+                controller: passwordController,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  hintText: 'Password',
+                  border: UnderlineInputBorder(),
+                ),
               ),
-            ),
-            const SizedBox(height: 13),
-            TextField(
-              controller: phoneController,
-              decoration: const InputDecoration(
-                hintText: 'Phone',
-                border: UnderlineInputBorder(),
+              const SizedBox(height: 13),
+              TextField(
+                controller: emailController,
+                decoration: const InputDecoration(
+                  hintText: 'Email',
+                  border: UnderlineInputBorder(),
+                ),
               ),
-            ),
-            const SizedBox(height: 13),
-            TextField(
-              controller: ageController,
-              decoration: const InputDecoration(
-                hintText: 'Age',
-                border: UnderlineInputBorder(),
+              const SizedBox(height: 13),
+              TextField(
+                controller: phoneController,
+                decoration: const InputDecoration(
+                  hintText: 'Phone',
+                  border: UnderlineInputBorder(),
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.teal,
-                minimumSize: Size(double.infinity, 60),
-                padding: const EdgeInsets.symmetric(vertical: 15),
+              const SizedBox(height: 13),
+              TextField(
+                controller: ageController,
+                decoration: const InputDecoration(
+                  hintText: 'Age',
+                  border: UnderlineInputBorder(),
+                ),
               ),
-              onPressed: () {
-                final emailError = validateEmail(emailController.text);
-                final passwordError = validatePassword(passwordController.text);
-
-                if (usernameController.text.isEmpty ||
-                    emailController.text.isEmpty ||
-                    phoneController.text.isEmpty ||
-                    ageController.text.isEmpty ||
-                    emailError != null ||
-                    passwordError != null) {
-                  showDialog(
+              const SizedBox(height: 13),
+              TextField(
+                controller: genderController,
+                readOnly: true,
+                decoration: const InputDecoration(
+                  hintText: 'Gender',
+                  border: UnderlineInputBorder(),
+                ),
+                onTap: () async {
+                  String? selectedGender = await showDialog(
                     context: context,
-                    builder: (context) => AlertDialog(
-                      title: const Text("Error"),
-                      content: Text(emailError ??
-                          passwordError ??
-                          "Please fill all fields"),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: const Text("OK"),
-                        ),
-                      ],
-                    ),
+                    builder: (BuildContext context) {
+                      return SimpleDialog(
+                        title: Text('Select Gender'),
+                        children: [
+                          ...['Male', 'Female']
+                              .map((gender) => SimpleDialogOption(
+                                    onPressed: () {
+                                      Navigator.pop(context, gender);
+                                    },
+                                    child: Text(gender),
+                                  ))
+                              .toList(),
+                        ],
+                      );
+                    },
                   );
-                  return;
-                }
 
-                _LoginPageState.registeredUser = User(
-                  username: usernameController.text,
-                  password: passwordController.text,
-                  email: emailController.text,
-                  phone: phoneController.text,
-                  age: ageController.text,
-                );
+                  if (selectedGender != null) {
+                    genderController.text = selectedGender;
+                  }
+                },
+              ),
 
-                Navigator.pop(context);
-              },
-              child: const Text("Sign Up",
-                  style: TextStyle(color: Colors.white, fontSize: 20)),
-            ),
-          ],
+              const SizedBox(height: 13),
+              // TextField(
+              //   controller: nationalityController,
+              //   readOnly:true,
+              //   decoration: const InputDecoration(
+              //     hintText: 'Nationality',
+              //     border: UnderlineInputBorder(),
+              //   ),
+              // ),
+              // DropdownButton<String>(
+              //   value: nationalityController.text.isEmpty
+              //       ? null
+              //       : nationalityController.text,
+              //   hint: Text('Select Nationality'),
+              //   items: ['egypt', 'moroco' , 'tunis' , 'france', 'german']
+              //       .map((nationality) => DropdownMenuItem<String>(
+              //             value: nationality,
+              //             child: Text(nationality),
+              //           ))
+              //       .toList(),
+              //   onChanged: (newValue) {
+              //     nationalityController.text = newValue!;
+              //   },
+              // ),
+              // const SizedBox(height: 20),
+              TextField(
+                controller: nationalityController,
+                readOnly: true,
+                decoration: const InputDecoration(
+                  hintText: 'Nationality',
+                  border: UnderlineInputBorder(),
+                ),
+                onTap: () async {
+                  String? selectedNationality = await showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return SimpleDialog(
+                        title: Text('Select Nationality'),
+                        children: [
+                          ...[
+                            'Egypt',
+                            'Morocco',
+                            'Tunisia',
+                            'France',
+                            'Germany'
+                          ]
+                              .map((nationality) => SimpleDialogOption(
+                                    onPressed: () {
+                                      Navigator.pop(context, nationality);
+                                    },
+                                    child: Text(nationality),
+                                  ))
+                              .toList(),
+                        ],
+                      );
+                    },
+                  );
+
+                  if (selectedNationality != null) {
+                    nationalityController.text = selectedNationality;
+                  }
+                },
+              ),
+
+              const SizedBox(height: 13),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal,
+                  minimumSize: Size(double.infinity, 60),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                ),
+                onPressed: () {
+                  final emailError = validateEmail(emailController.text);
+                  final passwordError =
+                      validatePassword(passwordController.text);
+
+                  if (firstnameController.text.isEmpty ||
+                      lastnameController.text.isEmpty ||
+                      genderController.text.isEmpty ||
+                      nationalityController.text.isEmpty ||
+                      emailController.text.isEmpty ||
+                      phoneController.text.isEmpty ||
+                      ageController.text.isEmpty ||
+                      emailError != null ||
+                      passwordError != null) {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text("Error"),
+                        content: Text(emailError ??
+                            passwordError ??
+                            "Please fill all fields"),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text("OK"),
+                          ),
+                        ],
+                      ),
+                    );
+                    return;
+                  }
+
+                  _LoginPageState.registeredUser = User(
+                    FirstName: firstnameController.text,
+                    LastName: lastnameController.text,
+                    password: passwordController.text,
+                    email: emailController.text,
+                    phone: phoneController.text,
+                    age: ageController.text,
+                    Gender: genderController.text,
+                    Nationality: nationalityController.text,
+                  );
+
+                  Navigator.pop(context);
+                },
+                child: const Text("Sign Up",
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -392,7 +508,7 @@ class _HomePageState extends State<HomePage> {
                     itemCount: 8,
                     itemBuilder: (context, index) {
                       return Image.asset(
-                        'assets/images/${index + 1}.jpg',
+                        'assets/images/homeImages/${index + 1}.jpg',
                         fit: BoxFit.cover,
                         width: double.infinity,
                       );
@@ -562,7 +678,7 @@ class AppDrawer extends StatelessWidget {
               color: Colors.teal,
             ),
             accountName: Text(
-              user.username,
+              '${user.FirstName} ${user.LastName}', // Concatenate first and last name
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
@@ -575,7 +691,7 @@ class AppDrawer extends StatelessWidget {
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.white,
               child: Text(
-                user.username[0].toUpperCase(),
+                user.FirstName[0].toUpperCase(),
                 style: const TextStyle(fontSize: 30, color: Colors.teal),
               ),
             ),
